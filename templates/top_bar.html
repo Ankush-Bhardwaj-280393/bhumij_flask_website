@@ -1,49 +1,37 @@
-<div id="top_bar" 
-    style="
-        padding: 0;
-        background-color: green;
-        display: flex;
-        border: solid black 1px;
-        color: white;
-        height: 40px;
-        ">
-    <div id="top_bar_text"
-        style="
-            text-align: left;
-            width: 50%;
-            padding : 10px;
-            ">
-        <p>Free Delivery on order of ₹300. Order Now!!!!</p>
+<!-- Top Bar -->
+<style>
+  #top_bar {
+    background-color: #28a745; /* your custom green */
+    color: #000;              /* text color */
+  }
+
+  p {
+    font-size: small;
+  }
+</style>
+
+<div class="container-fluid py-2" id="top_bar">
+
+  <!-- Desktop View: Three Static Columns -->
+  <div class="row text-center d-none d-md-flex">
+    <div class="col-md-4"><p>COD available for Order Value less than Rs. 699</p></div>
+    <div class="col-md-4"><p>Free PAN INDIA shipping above Rs. 399. Shop Now !!</p></div>
+    <div class="col-md-4"><p>Contact: +91 820 9338 762</p></div>
+  </div>
+
+  <!-- Mobile View: Carousel -->
+  <div id="mobileCarousel" class="carousel slide d-md-none" data-bs-ride="carousel">
+    <div class="carousel-inner text-center">
+      <div class="carousel-item active">
+        <p>COD available for Order Value less than Rs. 699</p>
+      </div>
+      <div class="carousel-item">
+        <p>Free PAN INDIA shipping above Rs. 399. Shop Now !!</p>
+      </div>
+      <div class="carousel-item">
+        <p>Contact: +91 820 9338 762</p>
+      </div>
     </div>
-    <div id="social_media_icons"
-        style="
-            text-align: right;
-            width: 50%;
-            float: right;
-            font-weight: bold;
-            padding : 10px;
-            ">
-        <p style="display: inline">Contact - 0123456789 </p>
-        <a href="#" 
-            style=
-                "color: white; 
-                text-decoration: none ;
-                padding: 0 5px;
-                " >
-        F</a>
-        <a href="#" 
-            style=
-                "color: white; 
-                text-decoration: none ;
-                padding: 0 5px;
-                " >
-        X</a>
-        <a href="#" 
-            style=
-                "color: white; 
-                text-decoration: none ;
-                padding: 0 5px;
-                " >
-        I</a>
-    </div>
+  </div>
+
 </div>

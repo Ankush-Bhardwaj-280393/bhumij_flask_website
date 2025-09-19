@@ -1,40 +1,42 @@
 <style>
-  /* Carousel Container */
-  #carousel-container {
-      width: 100%;
-      height: 350px;
-      margin: 2px 0 0 0;
-      position: relative;
-      overflow: hidden;
-      margin: 10px 0;
-      /* border: 2px solid black; */
+  .carousel-item img {
+    width: 100%;
+    height: 350px;        /* or any desired height */
+    object-fit: cover; 
+    margin: 10px 0;   /* cover ensures image fills the space */
   }
 
-  #carousel-container img{
-    object-fit: fill;
+  /* On small screens */
+  @media (max-width: 576px) {
+    .carousel-item img {
+      height: 100px;  
+      margin: 10px 0; /* shorter height on mobile */
+    }
   }
 </style>
 
-<div id="carousel-container">
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-          <img src="static/images/carousal_images/image4.jpeg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="static/images/carousal_images/image5.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="static/images/carousal_images/image3.webp" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ url_for('static', filename='images/carousal_images/image4.jpeg') }}" 
+           class="d-block w-100" 
+           alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/carousal_images/image5.png') }}" 
+           class="d-block w-100" 
+           alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/carousal_images/image3.webp') }}" 
+           class="d-block w-100" 
+           alt="Slide 2">
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
