@@ -1,38 +1,55 @@
 <style>
-    #top_products{
-        display: flex;
-        height: 50px;
-        margin : 10px 0 0 0;
-    }
-
-    #top_product_header {
-        width: 50%;
-        display: flex;
-        align-items: center ;
-        font-size: large;
-        /* border: solid black 1px; */
-
-    }
-
-    #top_product_see_all{
-        width: 50%;
-        float: right;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        /* border: solid black 1px; */
-    }
+  .scroll-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+  .scroll-row::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-row .card {
+    flex: 0 0 auto;
+    width: 180px;  /* width for mobile tiles */
+  }
+  .card img {
+    height: 120px;
+    object-fit: cover; /* keep images uniform */
+  }
+  .card-text {
+    font-size: 0.9rem;
+    color: #555;
+  }
 </style>
+<div class="container my-4">
+  <h2 class="text-center mb-4">Our Top Products</h2>
 
+  <!-- Desktop grid (6 per row) -->
+  <div class="row g-3 d-none d-lg-flex">
+    {% for product in products %}
+    <div class="col-6 col-lg-2">
+      <div class="card h-100">
+        <img src="{{ product.img }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.desc }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
-<div id="top_products">
-    <div id="top_product_header">
-        <h3>Top Products</h3>
+  <!-- Mobile scroll (horizontal swipe) -->
+  <div class="scroll-row d-flex d-lg-none">
+    {% for product in products %}
+    <div class="card">
+      <img src="{{ product.img }}" class="card-img-top" alt="{{ product.name }}">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.desc }}</p>
+      </div>
     </div>
-    <div id="top_product_see_all">
-        <a href="{{ url_for('live_plants') }}">see all</a>
-    </div>
-</div>
-<div id="top_product_carousal">
-    <h3>product tiles to come</h3>
+    {% endfor %}
+  </div>
 </div>
