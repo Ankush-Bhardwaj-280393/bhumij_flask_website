@@ -23,7 +23,7 @@
   }
 </style>
 <div class="container my-4">
-  <h2 class="text-center mb-4">Our Top Products</h2>
+  <h2 class="text-center mb-4">{{category}}</h2>
 
   <!-- Desktop grid (6 per row) -->
   <div class="row g-3 d-none d-lg-flex">
@@ -31,10 +31,10 @@
     <div class="col-6 col-lg-2">
       <div class="card h-100">
         
-        <img src="{{ product.img }}" class="card-img-top" alt="{{ product.name }}">
+        <img src="{{ url_for('static',filename='images/mitti/mitti_bhumij.jpg') }}" class="card-img-top" alt="{{ product.name }}">
         <div class="card-body text-center">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">{{ product.desc }}</p>
+          <h5 class="card-title">{{ product.item_name }}</h5>
+          {#<!-- <p class="card-text">{{ product.desc }}</p> -->#}
         </div>
       </div>
     </div>
@@ -45,10 +45,10 @@
   <div class="scroll-row d-flex d-lg-none">
     {% for product in products %}
     <div class="card">
-      <img src="{{ product.img }}" class="card-img-top" alt="{{ product.name }}">
+      <img src="{{ url_for('static',filename='images/mitti/mitti_bhumij.jpg') }}" class="card-img-top" alt="{{ product.name }}">
       <div class="card-body text-center">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.desc }}</p>
+        <h5 class="card-title">{{ product.item_name }}</h5>
+        {#<!-- <p class="card-text">{{ product.desc }}</p> -->#}
       </div>
     </div>
     {% endfor %}

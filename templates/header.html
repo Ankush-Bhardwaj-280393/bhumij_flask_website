@@ -38,10 +38,21 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="list-unstyled">
-                <li><a href="{{ url_for('live_plants') }}" class="nav-link">Live Plants</a></li>
+                {#
+                <!-- <li><a href="{{ url_for('live_plants') }}" class="nav-link">Live Plants</a></li>
                 <li><a href="#" class="nav-link">Pot & Planters</a></li>
-                <li><a href="#" class="nav-link">Garden Needs</a></li>
-                <li><a href="#" class="nav-link">Germination Seeds</a></li>
+                <li><a href="#" class="na
+                    v-link">Garden Needs</a></li>
+                <li><a href="#" class="nav-link">Germination Seeds</a></li> -->
+                #}
+                {% for cat in main_categories %}
+                    <li>
+                        <!-- Use url_for to generate the route -->
+                        <a href="{{ url_for('show_category', category_name=cat) }}">
+                            {{ cat }}
+                        </a>
+                    </li>
+                {% endfor %}
                 <li><a href="#" class="nav-link">Offers</a></li>
                 <li><a href="#" class="nav-link">Photo Gallery</a></li>
                 </ul>
@@ -81,10 +92,20 @@
         </div>
     <div class="row align-items-center d-none d-md-flex mt-3">
         <ul class="d-flex justify-content-center gap-4 list-unstyled ">
-            <li><a href="{{ url_for('live_plants') }}"> Live Plants </a></li>
+            {#
+            <!-- <li><a href="{{ url_for('live_plants') }}"> Live Plants </a></li>
             <li><a href="#"> Pot & Planters </a></li>
             <li><a href="#"> Garden Needs </a></li>
-            <li><a href="#"> Germination Seeds </a></li>
+            <li><a href="#"> Germination Seeds </a></li> -->
+            #}
+            {% for cat in main_categories %}
+                <li>
+                    <!-- Use url_for to generate the route -->
+                    <a href="{{ url_for('show_category', category_name=cat) }}">
+                        {{ cat }}
+                    </a>
+                </li>
+            {% endfor %}
             <li><a href="#"> Offers </a></li>
             <li><a href="#"> Photo Gallery </a></li>
         </ul>
