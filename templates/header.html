@@ -62,7 +62,9 @@
             <!-- <img src="{{ url_for('static', filename='images/icons/drop_down_icon.png')}}" alt="drop_down-icon" class="img-fluid" id="bhumij_index_dd_m"> -->
         </div>
         <div class="col-8">
-            <img src="{{ url_for('static', filename='images/logos/bhumij_logo.webp')}}" alt="bhumij_logo" class="img-fluid" id="bhumij_index_logo_m">
+            <a href="{{ url_for('index_page') }}">
+                <img src="{{ url_for('static', filename='images/logos/bhumij_logo.webp')}}" alt="bhumij_logo" class="img-fluid" id="bhumij_index_logo_m">
+            </a>
         </div>
         <div class="col-2">
             <img src="{{ url_for('static', filename='images/icons/login_icon.png')}}" alt="login_icon" class="img-fluid" id="bhumij_index_login_m">
@@ -78,7 +80,9 @@
     </div>
     <div class="row d-none d-md-flex align-items-center">
         <div class="col-3">
-            <img src="{{ url_for('static', filename='images/logos/bhumij_logo.webp')}}" alt="bhumij_logo">
+            <a href="{{url_for('index_page')}}">
+                <img src="{{ url_for('static', filename='images/logos/bhumij_logo.webp')}}" alt="bhumij_logo">
+            </a>
         </div>
         <div class="col-8">
             <form class="d-flex" role="search">

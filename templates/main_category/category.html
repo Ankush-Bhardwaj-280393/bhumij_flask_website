@@ -1,32 +1,10 @@
-{#
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>{{ category }} Products</title>
-</head>
-<body>
-    <h1>Products in {{ category }}</h1>
-
-    {% if products %}
-        <ul>
-        {% for p in products %}
-            <li>{{ p['product'] }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No products found in this category.</p>
-    {% endif %}
-</body>
-</html> -->
-#}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Live Plants - Bhumij Plants</title>
-    `
+    <title>{{category}}</title>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/index.css') }}">
     

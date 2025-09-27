@@ -17,7 +17,6 @@ main_categories.sort()
 
 @app.route("/")
 def index_page():
-    
     return render_template("index.html",
                            main_categories=main_categories,
                            category="Our Top Products",)
@@ -41,6 +40,14 @@ def show_category(category_name):
                            main_categories= main_categories, 
                            category=category_name, 
                            products=filtered.to_dict(orient="records"))
+
+@app.route("/product/<int:product_id>/")
+def product_detail(product_id):
+    product = master_item_df[master_item_df["id"].astype(int)==product_id]
+    product=product.to_dict(orient="records")[0]
+    return render_template("individual_product/product_detail.html",
+                           main_categories= main_categories,
+                           product=product)
 
 if __name__=="__main__":
     app.run(host="0.0.0.0", debug=True)
