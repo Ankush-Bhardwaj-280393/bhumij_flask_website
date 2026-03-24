@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ plant.name }} | Bhumij Plants{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-success text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active">{{ plant.category }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-md-6" data-aos="fade-right">
+            <div class="card border-0 shadow-sm overflow-hidden rounded-4">
+                <img src="{{ url_for('static', filename='img/' + plant.image_file) }}" 
+                     class="img-fluid w-100" alt="{{ plant.name }}" style="min-height: 400px; object-fit: cover;">
+            </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-left">
+            <h1 class="display-5 fw-bold mb-2">{{ plant.name }}</h1>
+            <p class="badge bg-light text-success border border-success px-3 py-2 rounded-pill">{{ plant.category }}</p>
+            
+            <h2 class="text-success fw-bold my-4">₹{{ plant.price }}</h2>
+            
+            <p class="text-muted lead mb-4">
+                Enhance your living space with this beautiful {{ plant.name }}. 
+                Perfect for adding a touch of nature and improving air quality in your home.
+            </p>
+
+            <div class="row mb-4 g-2 text-center">
+                <div class="col-4">
+                    <div class="p-2 border rounded bg-light">
+                        <small class="text-muted d-block">Sunlight</small>
+                        <span class="fw-bold small">Partial Shade</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="p-2 border rounded bg-light">
+                        <small class="text-muted d-block">Water</small>
+                        <span class="fw-bold small">Once a week</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="p-2 border rounded bg-light">
+                        <small class="text-muted d-block">Difficulty</small>
+                        <span class="fw-bold small">Easy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-3 mb-5">
+                <a href="{{ url_for('cart.add_to_cart', plant_id=plant.id) }}" class="btn btn-success btn-lg rounded-pill py-3 fw-bold shadow">
+                    Add to Cart 🛒
+                </a>
+                <button class="btn btn-outline-dark btn-lg rounded-pill py-3 fw-bold">
+                    Buy Now
+                </button>
+            </div>
+
+            <div class="border-top pt-4">
+                <div class="row text-center text-muted small">
+                    <div class="col-4">🚚 <br> Fast Delivery</div>
+                    <div class="col-4">💳 <br> Secure Payment</div>
+                    <div class="col-4">🌿 <br> Fresh Policy</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

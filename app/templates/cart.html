@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Your Cart | Bhumij Plants{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="fw-bold mb-4">Shopping Cart 🛒</h2>
+
+    {% if items %}
+    <div class="row">
+        <div class="col-lg-8">
+            {% for item in items %}
+            <div class="card mb-3 border-0 shadow-sm p-3">
+                <div class="row g-0 align-items-center">
+                    <div class="col-3 col-md-2">
+                        <img src="{{ url_for('static', filename='img/' + item.plant.image_file) }}" class="img-fluid rounded" alt="{{ item.plant.name }}">
+                    </div>
+                    <div class="col-6 col-md-7 px-3">
+                        <h5 class="mb-0 fw-bold">{{ item.plant.name }}</h5>
+                        <p class="text-muted small">₹{{ item.plant.price }} x {{ item.quantity }}</p>
+                    </div>
+                    <div class="col-3 col-md-3 text-end">
+                        <p class="fw-bold">₹{{ item.plant.price * item.quantity }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm p-4 bg-light">
+                <h4 class="fw-bold">Order Summary</h4>
+                <hr>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <span>₹{{ total }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-4">
+                    <span>Shipping</span>
+                    <span class="text-success">FREE</span>
+                </div>
+                <div class="d-flex justify-content-between fw-bold fs-5 mb-4">
+                    <span>Total</span>
+                    <span>₹{{ total }}</span>
+                </div>
+                <button class="btn btn-success btn-lg w-100 rounded-pill">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <h4 class="text-muted">Your cart is empty... for now! 🌿</h4>
+        <a href="/" class="btn btn-outline-success mt-3">Go Shopping</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

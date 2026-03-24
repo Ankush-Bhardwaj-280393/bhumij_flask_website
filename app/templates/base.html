@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}Premium indoor plants and succulents delivered to your doorstep.{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <title>{% block title %}PlantShop | Bring Nature Home{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #eee; }
+        .btn-success { background-color: #2d6a4f; border: none; }
+        .btn-success:hover { background-color: #1b4332; }
+        .nav-link { font-weight: 600; color: #2d6a4f !important; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">🌿 BHUMIJ PLANTS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart">Cart (0)</a></li>
+                <li class="nav-item"><a class="btn btn-outline-success ms-lg-3" href="/login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="py-5 bg-dark text-white mt-5">
+    <div class="container text-center">
+        <p class="mb-0">© 2026 Bhumij Plants. Secure SSL Encrypted Checkout.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init({ duration: 800, once: true });</script>
+
+</body>
+</html>

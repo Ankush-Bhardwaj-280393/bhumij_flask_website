@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Checkout | Bhumij Plants{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row g-5">
+        <div class="col-md-7 col-lg-8" data-aos="fade-right">
+            <h4 class="mb-3 fw-bold">Shipping Address</h4>
+            <form class="needs-validation">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label class="form-label">First name</label>
+                        <input type="text" class="form-control rounded-3" placeholder="Ankush" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label">Last name</label>
+                        <input type="text" class="form-control rounded-3" placeholder="Sharma" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control rounded-3" placeholder="123 Plant Street" required>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control rounded-3" placeholder="Mumbai" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">State</label>
+                        <select class="form-select rounded-3" required>
+                            <option value="">Choose...</option>
+                            <option>Maharashtra</option>
+                            <option>Delhi</option>
+                            <option>Karnataka</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Zip</label>
+                        <input type="text" class="form-control rounded-3" placeholder="400001" required>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h4 class="mb-3 fw-bold">Payment</h4>
+                <div class="my-3">
+                    <div class="form-check">
+                        <input name="paymentMethod" type="radio" class="form-check-input" checked required>
+                        <label class="form-check-label">Cash on Delivery (COD)</label>
+                    </div>
+                    <div class="form-check text-muted">
+                        <input name="paymentMethod" type="radio" class="form-check-input" disabled>
+                        <label class="form-check-label">UPI / Card (Coming Soon)</label>
+                    </div>
+                </div>
+
+                <button class="w-100 btn btn-success btn-lg rounded-pill mt-4" type="button" onclick="alert('Order Placed Successfully! 🌱')">
+                    Confirm Order
+                </button>
+            </form>
+        </div>
+
+        <div class="col-md-5 col-lg-4" data-aos="fade-left">
+            <div class="card border-0 shadow-sm p-4 bg-light rounded-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-success fw-bold">Your Cart</span>
+                    <span class="badge bg-success rounded-pill">{{ items|length }}</span>
+                </h4>
+                <ul class="list-group list-group-flush mb-3">
+                    {% for item in items %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm bg-transparent">
+                        <div>
+                            <h6 class="my-0 fw-bold">{{ item.plant.name }}</h6>
+                            <small class="text-muted">Qty: {{ item.quantity }}</small>
+                        </div>
+                        <span class="text-muted">₹{{ item.plant.price * item.quantity }}</span>
+                    </li>
+                    {% endfor %}
+                    <li class="list-group-item d-flex justify-content-between bg-transparent">
+                        <span class="fw-bold">Total (INR)</span>
+                        <strong class="text-success fs-5">₹{{ total }}</strong>
+                    </li>
+                </ul>
+                <div class="text-center mt-3">
+                    <small class="text-muted">🔒 SSL Encrypted Checkout</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

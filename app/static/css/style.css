@@ -1,0 +1,48 @@
+/* 🌿 Global */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7f6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #2e7d32;
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+/* Cards */
+.plant-card {
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.plant-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn-green {
+    background-color: #2e7d32;
+    color: white;
+}
+.btn-green:hover {
+    background-color: #1b5e20;
+}
+
+/* Product Page */
+.product-img {
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Cart */
+.cart-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
